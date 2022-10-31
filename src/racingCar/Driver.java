@@ -13,25 +13,28 @@ abstract class Driver<A extends Transport&Competing>{
 
     }
 
-    public abstract void startMoving(A transport) {
-        System.out.println("Водитель " + fullNameDriver + " управляет транспортным средством " + transport.getBrand() + " и будет участвовать в заезде.");
-    }
+    public abstract void startMoving(A transport);
 
-    public abstract void finishMoving(A transport) {
 
-    }
+    public abstract void finishMoving(A transport);
 
-    public abstract void refuelTheCar(A transport) {
 
-    }
+    public abstract void refuelTheCar(A transport);
+
 
     public String getFullNameDriver() {
         return fullNameDriver;
     }
 
     public void setFullNameDriver(String fullNameDriver) {
-        this.fullNameDriver = fullNameDriver;
+
+        if (fullNameDriver == null || fullNameDriver.isEmpty()) {
+            this.fullNameDriver = "No information";
+        } else {
+            this.fullNameDriver = fullNameDriver;
+        }
     }
+
 
     public boolean isDriverLicense() {
         return driverLicense;
@@ -46,7 +49,11 @@ abstract class Driver<A extends Transport&Competing>{
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience <= 0) {
+            this.experience = 0;
+        } else {
+            this.experience = experience;
+        }
     }
 
     @Override
@@ -57,4 +64,10 @@ abstract class Driver<A extends Transport&Competing>{
                 ", experience=" + experience +
                 '}';
     }
+
+    public abstract void start(Transport transport);
+
+    public abstract void refill(Transport transport);
+
+    public abstract void stop(Transport transport);
 }

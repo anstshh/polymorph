@@ -5,6 +5,10 @@ public abstract class Transport implements Competing{
     private String model;
     private double engineVolume;
 
+    public String getBrand() {
+        return brand;
+    }
+
     public Transport(String brand, String model, double engineVolume) {
         if (brand == null && brand.isEmpty()) {
             this.brand = "No information";
@@ -23,9 +27,6 @@ public abstract class Transport implements Competing{
         }
     }
 
-    public String getBrand() {
-        return brand;
-    }
 
     public void setBrand(String brand) {
         if (brand == null && brand.isEmpty()) {
@@ -61,9 +62,9 @@ public abstract class Transport implements Competing{
 
     public abstract void startMoving();
 
-    public abstract void finishTheMovement();
+    public abstract void finishMoving();
 
-    @Override
+   /*/ @Override (поменяла эти методы в других классах и теперь не знаю нужны ли они тут)
     public String[] getPitStop() {
         return new String[0];
     }
@@ -76,5 +77,14 @@ public abstract class Transport implements Competing{
     @Override
     public int[] maxSpeed() {
         return new int[0];
+    }*/
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                '}';
     }
 }

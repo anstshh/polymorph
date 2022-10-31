@@ -8,26 +8,30 @@ public class Car extends Transport implements Competing{
 
     @Override
     public void startMoving() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
 
     }
 
     @Override
-    public void finishTheMovement() {
+    public void finishMoving() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " заканчивает движение.");
 
     }
 
     @Override
-    public String[] getPitStop() {
-        return new String[0];
+    public void pitStop() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " совершает пит-стоп!");
     }
 
     @Override
-    public double[] bestLapTime() {
-        return new double[0];
+    public double getBestLapTime() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " устанавливает лучшее время круга!");
+        return 0;
     }
 
     @Override
-    public int[] maxSpeed() {
-        return new int[0];
+    public double getMaxSpeed() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " развивает максимальную скорость!");
+        return 0;
     }
 }
