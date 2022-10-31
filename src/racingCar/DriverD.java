@@ -1,8 +1,8 @@
 package racingCar;
 
-public class Driver3 extends Truck{
+public class DriverD <A extends Bus&Competing> extends Driver{
 
-    public Driver3(String brand, String model, double engineVolume) {
+    public DriverD(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
 

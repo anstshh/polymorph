@@ -1,26 +1,27 @@
 package racingCar;
 
-public class Driver1 <A extends Transport>{
+abstract class Driver<A extends Transport&Competing>{
 
     private String fullNameDriver;
-    private boolean driverLicense;
+    private boolean driverLicense = true;
     private int experience;
 
-    public Driver1(String fullNameDriver, boolean driverLicense, int experience) {
-        this.fullNameDriver = fullNameDriver;
-        this.driverLicense = driverLicense;
-        this.experience = experience;
+    public Driver(String fullNameDriver, boolean driverLicense, int experience) {
+        setFullNameDriver(fullNameDriver);
+        setDriverLicense(driverLicense);
+        setExperience(experience);
+
     }
 
-    public void startMoving(A transport) {
+    public abstract void startMoving(A transport) {
         System.out.println("Водитель " + fullNameDriver + " управляет транспортным средством " + transport.getBrand() + " и будет участвовать в заезде.");
     }
 
-    public void finishMoving() {
+    public abstract void finishMoving(A transport) {
 
     }
 
-    public void refuelTheCar() {
+    public abstract void refuelTheCar(A transport) {
 
     }
 
@@ -46,5 +47,14 @@ public class Driver1 <A extends Transport>{
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "fullNameDriver='" + fullNameDriver + '\'' +
+                ", driverLicense=" + driverLicense +
+                ", experience=" + experience +
+                '}';
     }
 }

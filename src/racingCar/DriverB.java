@@ -1,14 +1,15 @@
 package racingCar;
 
-public class Driver4 extends Bus{
+public class DriverB<A extends Transport&Competing> extends Driver {
 
-    public Driver4(String brand, String model, double engineVolume) {
+    public DriverB(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
 
     @Override
     public void startMoving() {
         super.startMoving();
+
     }
 
     @Override
