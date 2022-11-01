@@ -18,41 +18,43 @@ public class Main {
         Bus daaz = new Bus("Daaz", "5502", 4);
         Bus raf = new Bus("Far", "3002", 2);
 
-        printInfoPassenger(kia);
-        printInfoPassenger(lada);
-        printInfoPassenger(bmw);
-        printInfoPassenger(nissan);
         System.out.println();
-        printInfoTruck(gazel);
-        printInfoTruck(tayota);
-        printInfoTruck(gili);
-        printInfoTruck(yuaz);
+        System.out.println(lada);
+        System.out.println(gazel);
+        System.out.println(luaz);
+
         System.out.println();
-        printInfoBus(luaz);
-        printInfoBus(paz);
-        printInfoBus(daaz);
-        printInfoBus(raf);
+        daaz.getMaxSpeed();
+        yuaz.getBestLapTime();
+        kia.pitStop();
+        System.out.println();
 
         System.out.println();
 
         DriverB roger = new DriverB("Roger", true,40);
-        roger.startMoving(kia);
+        roger.start(kia);
 
         DriverC peter = new DriverC("Peter",true,12);
-        peter.startMoving(gazel);
+        peter.start(gazel);
 
         DriverD lexie = new DriverD("Lexie",true,2);
-        lexie.startMoving(raf);
-    }
+        lexie.start(raf);
 
 
-    public static void printInfoPassenger(Car passenger) {
-        System.out.println(passenger.getBrand() + " " + passenger.getModel() + ", обьем двигателя " + passenger.getEngineVolume());
-    }
-    public static void printInfoTruck(Truck truck) {
-        System.out.println(truck.getBrand() + " " + truck.getModel() + ", обьем двигателя " + truck.getEngineVolume());
-    }
-    public static void printInfoBus(Bus bus) {
-        System.out.println(bus.getBrand() + " " + bus.getModel() + ", обьем двигателя " + bus.getEngineVolume());
+
+    System.out.println();
+        roger.start(bmw);
+        roger.stop(bmw);
+        roger.refill(bmw);
+
+        System.out.println();
+        peter.start(tayota);
+        peter.stop(tayota);
+        peter.refill(tayota);
+
+        System.out.println();
+        lexie.start(paz);
+        lexie.stop(paz);
+        lexie.refill(paz);
     }
 }

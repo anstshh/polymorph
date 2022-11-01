@@ -13,13 +13,13 @@ abstract class Driver<A extends Transport&Competing>{
 
     }
 
-    public abstract void startMoving(A transport);
+    public abstract void start(A transport);
 
 
-    public abstract void finishMoving(A transport);
+    public abstract void stop(A transport);
 
 
-    public abstract void refuelTheCar(A transport);
+    public abstract void refill(A transport);
 
 
     public String getFullNameDriver() {
@@ -65,9 +65,4 @@ abstract class Driver<A extends Transport&Competing>{
                 '}';
     }
 
-    public abstract void start(Transport transport);
-
-    public abstract void refill(Transport transport);
-
-    public abstract void stop(Transport transport);
 }
