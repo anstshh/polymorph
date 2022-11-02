@@ -1,8 +1,8 @@
 package racingCar;
 
-public class Bus extends Transport implements  Competing{
+public class Car extends Transport implements Competing{
 
-    public Bus(String brand, String model, double engineVolume) {
+    public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
 
@@ -14,7 +14,7 @@ public class Bus extends Transport implements  Competing{
 
     @Override
     public void finishMoving() {
-        System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
+        System.out.println(this.getBrand() + " " + this.getModel() + " заканчивает движение.");
 
     }
 
