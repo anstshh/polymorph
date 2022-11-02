@@ -38,7 +38,7 @@ public class Main {
         peter.start(gazel);
 
         DriverD lexie = new DriverD("Lexie",true,2);
-        lexie.start(raf);
+        lexie.start(luaz);
 
 
 

@@ -64,20 +64,6 @@ public abstract class Transport implements Competing{
 
     public abstract void finishMoving();
 
-   /*/ @Override (поменяла эти методы в других классах и теперь не знаю нужны ли они тут)
-    public String[] getPitStop() {
-        return new String[0];
-    }
-
-    @Override
-    public double[] bestLapTime() {
-        return new double[0];
-    }
-
-    @Override
-    public int[] maxSpeed() {
-        return new int[0];
-    }*/
 
     @Override
     public String toString() {
