@@ -2,8 +2,15 @@ package racingCar;
 
 public class Car extends Transport implements Competing{
 
-    public Car(String brand, String model, double engineVolume) {
+    public TypeBody typeBody;
+
+    public Car(String brand, String model, double engineVolume, TypeBody typeBody) {
         super(brand, model, engineVolume);
+        this.typeBody = typeBody;
+    }
+
+    public TypeBody getTypeBody() {
+        return typeBody;
     }
 
     @Override
@@ -33,5 +40,21 @@ public class Car extends Transport implements Competing{
     public double getMaxSpeed() {
         System.out.println(this.getBrand() + " " + this.getModel() + " развивает максимальную скорость!");
         return 0;
+    }
+
+    @Override
+    public void printInfo() {
+        if(typeBody == null) {
+            System.out.println("Тип не указан");
+        } else {
+            System.out.println("Тип кузова -" + typeBody.getEnumerationTypeBody());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "typeBody=" + typeBody +
+                '}';
     }
 }

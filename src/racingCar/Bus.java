@@ -2,8 +2,15 @@ package racingCar;
 
 public class Bus extends Transport implements  Competing{
 
-    public Bus(String brand, String model, double engineVolume) {
+    private Capacity capacity;
+
+    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        setCapacity(capacity);
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
     }
 
     @Override
@@ -33,5 +40,14 @@ public class Bus extends Transport implements  Competing{
     public double getMaxSpeed() {
         System.out.println(this.getBrand() + " " + this.getModel() + " развивает максимальную скорость!");
         return 0;
+    }
+
+    @Override
+    public void printInfo() {
+        if(capacity==null) {
+            System.out.println("Тип не указан");
+        } else {
+            System.out.println("Вместимость -" + capacity.getEnumerationCapacity());
+        }
     }
 }
