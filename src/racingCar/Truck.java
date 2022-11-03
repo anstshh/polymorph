@@ -2,8 +2,11 @@ package racingCar;
 
 public class Truck extends Transport implements Competing{
 
-    public Truck(String brand, String model, double engineVolume) {
+    private Weight weight;
+
+    public Truck(String brand, String model, double engineVolume, Weight weight) {
         super(brand, model, engineVolume);
+        this.weight = weight;
     }
 
     @Override
@@ -33,5 +36,25 @@ public class Truck extends Transport implements Competing{
     public double getMaxSpeed() {
         System.out.println(this.getBrand() + " " + this.getModel() + " развивает максимальную скорость!");
         return 0;
+    }
+
+    @Override
+    public void printInfo() {
+        if(weight==null) {
+            System.out.println("Тип не указан");
+        } else {
+            System.out.println("Грузоподъемность -" + weight.getEnumerationWeight());
+        }
+    }
+
+    public Weight getWeight() {
+        return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "weight=" + weight +
+                '}';
     }
 }

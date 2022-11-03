@@ -7,4 +7,6 @@ public interface Competing {
     double getBestLapTime();
 
     double getMaxSpeed();
+
+    void printInfo();
 }
