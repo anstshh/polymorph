@@ -1,6 +1,34 @@
 import racingCar.*;
 
 public class Main {
+
+    public static void printInfoCar(Car car)
+        {
+            System.out.println("Информация о легковом автомобиле:" +
+                    " марка " + car.getBrand() +
+                    ", модель " + car.getModel() +
+                    ", мощность двигателя " + car.getEngineVolume() +
+                    " литров. Тип кузова - " + car.getTypeOfBody());
+        }
+
+    public static void printInfoByBus(Bus bus) {
+        System.out.println("Информация о автобусе:" +
+                " марка " + bus.getBrand() +
+                ", модель " + bus.getModel() +
+                ", мощность двигателя " + bus.getEngineVolume() +
+                " литров. Тип вместимости - " + bus.getWeight());
+    }
+
+    public static void printInfoByTrucks(Truck truck) {
+        System.out.println("Информация о грузовом автомобиле:" +
+                " марка " + truck.getBrand() +
+                ", модель " + truck.getModel() +
+                ", мощность двигателя " + truck.getEngineVolume() +
+                " литров. Тип грузоподъёмности - " + truck.getCapacity());
+    }
+
+
+
     public static void main(String[] args) {
 
         Car kia = new Car("Kia", "Spectra", 1.8, TypeOfBody.COUPE);
@@ -58,7 +86,10 @@ public class Main {
         lexie.stop(paz);
         lexie.refill(paz);
 
+        }
+
+
+
     }
 
 
-}
