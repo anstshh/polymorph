@@ -13,6 +13,10 @@ public class Bus extends Transport implements  Competing{
         this.capacity = capacity;
     }
 
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
     @Override
     public void startMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
@@ -22,6 +26,16 @@ public class Bus extends Transport implements  Competing{
     @Override
     public void finishMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
+
+    }
+
+    @Override
+    public void printType() {
+        if(capacity==null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Вместимость автобуса: от " + capacity.getFrom()+" до " + capacity.getTo());
+        }
 
     }
 
@@ -42,12 +56,6 @@ public class Bus extends Transport implements  Competing{
         return 0;
     }
 
-    @Override
-    public void printInfo() {
-        if(capacity==null) {
-            System.out.println("Тип не указан");
-        } else {
-            System.out.println("Вместимость -" + capacity.getEnumerationCapacity());
-        }
-    }
+
+
 }

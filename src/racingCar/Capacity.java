@@ -1,23 +1,26 @@
 package racingCar;
 
 public enum Capacity {
-    VERY_SMALL("особо малая (до 10 мест)"),
-    SMALL("малая (до 25 мест)"),
-    MEDIUM("средняя (40–50 мест)"),
-    LARGE("большая (60-80 мест)"),
-    VERY_LARGE("очень большая (100-120 мест)");
+    VERY_SMALL(0,10),
+    SMALL(10, 25),
+    MEDIUM(25,50),
+    LARGE(50,80),
+    VERY_LARGE(80,120),
+    ;
 
-    private final String enumerationCapacity;
+    private final int from;
+    private final int to;
 
-    Capacity (String enumerationCapacity) {
-        if (enumerationCapacity == null || enumerationCapacity.isBlank()) {
-            this.enumerationCapacity = "No information";
-        } else {
-            this.enumerationCapacity = enumerationCapacity;
-        }
+    Capacity(int from, int to) {
+        this.from = from;
+        this.to = to;
     }
 
-    public String getEnumerationCapacity() {
-        return enumerationCapacity;
+    public int getFrom() {
+        return from;
+    }
+
+    public int getTo() {
+        return to;
     }
 }

@@ -3,20 +3,20 @@ import racingCar.*;
 public class Main {
     public static void main(String[] args) {
 
-        Car kia = new Car("Kia", "Spectra", 1.8);
-        Car lada = new Car("Lada", "Granta", 1.6);
-        Car bmw = new Car("BMW", "E", 1.5);
-        Car nissan = new Car("Nissan", "Almera", 1.3);
+        Car kia = new Car("Kia", "Spectra", 1.8, TypeOfBody.COUPE);
+        Car lada = new Car("Lada", "Granta", 1.6, TypeOfBody.COUPE);
+        Car bmw = new Car("BMW", "E", 1.5, TypeOfBody.COUPE);
+        Car nissan = new Car("Nissan", "Almera", 1.3, TypeOfBody.COUPE);
 
-        Truck gazel = new Truck("Gazel", "1010", 5);
-        Truck tayota = new Truck("Tayota", "4568", 3.5);
-        Truck gili = new Truck("Gili", "908q", 2.5);
-        Truck yuaz = new Truck("Yuaz", "Siberia", 4.5);
+        Truck gazel = new Truck("Gazel", "1010", 5, Weight.N_3);
+        Truck tayota = new Truck("Tayota", "4568", 3.5, Weight.N_3);
+        Truck gili = new Truck("Gili", "908q", 2.5, Weight.N_3);
+        Truck yuaz = new Truck("Yuaz", "Siberia", 4.5, Weight.N_3);
 
-        Bus luaz = new Bus("Luaz", "AZ", 4);
-        Bus paz = new Bus("Paz", "1505", 2.5);
-        Bus daaz = new Bus("Daaz", "5502", 4);
-        Bus raf = new Bus("Far", "3002", 2);
+        Bus luaz = new Bus("Luaz", "AZ", 4, Capacity.LARGE);
+        Bus paz = new Bus("Paz", "1505", 2.5, Capacity.LARGE);
+        Bus daaz = new Bus("Daaz", "5502", 4, Capacity.LARGE);
+        Bus raf = new Bus("Far", "3002", 2, Capacity.LARGE);
 
         System.out.println();
         System.out.println(lada);
@@ -47,6 +47,7 @@ public class Main {
         roger.stop(bmw);
         roger.refill(bmw);
 
+
         System.out.println();
         peter.start(tayota);
         peter.stop(tayota);
@@ -56,5 +57,8 @@ public class Main {
         lexie.start(paz);
         lexie.stop(paz);
         lexie.refill(paz);
+
     }
+
+
 }

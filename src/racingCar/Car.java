@@ -2,15 +2,19 @@ package racingCar;
 
 public class Car extends Transport implements Competing{
 
-    public TypeBody typeBody;
+    private TypeOfBody typeOfBody;
 
-    public Car(String brand, String model, double engineVolume, TypeBody typeBody) {
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
-        this.typeBody = typeBody;
+        this.typeOfBody = typeOfBody;
     }
 
-    public TypeBody getTypeBody() {
-        return typeBody;
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -22,6 +26,16 @@ public class Car extends Transport implements Competing{
     @Override
     public void finishMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " заканчивает движение.");
+
+    }
+
+    @Override
+    public void printType() {
+        if(typeOfBody==null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип кузова авто: " + typeOfBody);
+        }
 
     }
 
@@ -43,18 +57,9 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
-    public void printInfo() {
-        if(typeBody == null) {
-            System.out.println("Тип не указан");
-        } else {
-            System.out.println("Тип кузова -" + typeBody.getEnumerationTypeBody());
-        }
-    }
-
-    @Override
     public String toString() {
         return "Car{" +
-                "typeBody=" + typeBody +
+                "typeBody=" + typeOfBody +
                 '}';
     }
 }

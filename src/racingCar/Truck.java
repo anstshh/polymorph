@@ -9,6 +9,14 @@ public class Truck extends Transport implements Competing{
         this.weight = weight;
     }
 
+    public Weight getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Weight weight) {
+        this.weight = weight;
+    }
+
     @Override
     public void startMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
@@ -18,6 +26,18 @@ public class Truck extends Transport implements Competing{
     @Override
     public void finishMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " заканчивает движение.");
+
+    }
+
+    @Override
+    public void printType() {
+        if(weight==null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            String from = weight.getFrom() == null ? " " : "от " + weight.getFrom() + " ";
+            String to = weight.getTo() == null ? " " : "от " + weight.getTo();
+            System.out.println("Грузоподъемность авто: " + from + to);
+        }
 
     }
 
@@ -38,18 +58,7 @@ public class Truck extends Transport implements Competing{
         return 0;
     }
 
-    @Override
-    public void printInfo() {
-        if(weight==null) {
-            System.out.println("Тип не указан");
-        } else {
-            System.out.println("Грузоподъемность -" + weight.getEnumerationWeight());
-        }
-    }
 
-    public Weight getWeight() {
-        return weight;
-    }
 
     @Override
     public String toString() {

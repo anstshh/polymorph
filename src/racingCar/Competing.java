@@ -8,5 +8,5 @@ public interface Competing {
 
     double getMaxSpeed();
 
-    void printInfo();
+
 }
