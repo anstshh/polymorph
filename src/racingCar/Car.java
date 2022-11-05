@@ -1,20 +1,20 @@
 package racingCar;
 
-public class Truck extends Transport implements Competing{
+public class Car extends Transport implements Competing{
 
-    private Weight weight;
+    private TypeOfBody typeOfBody;
 
-    public Truck(String brand, String model, double engineVolume, Weight weight) {
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
-        this.weight = weight;
+        this.typeOfBody = typeOfBody;
     }
 
-    public Weight getWeight() {
-        return weight;
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
     }
 
-    public void setWeight(Weight weight) {
-        this.weight = weight;
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -31,12 +31,10 @@ public class Truck extends Transport implements Competing{
 
     @Override
     public void printType() {
-        if(weight==null) {
+        if(typeOfBody==null) {
             System.out.println("Данных по авто недостаточно");
         } else {
-            String from = weight.getFrom() == null ? " " : "от " + weight.getFrom() + " ";
-            String to = weight.getTo() == null ? " " : "от " + weight.getTo();
-            System.out.println("Грузоподъемность авто: " + from + to);
+            System.out.println("Тип кузова авто: " + typeOfBody);
         }
 
     }
@@ -58,12 +56,10 @@ public class Truck extends Transport implements Competing{
         return 0;
     }
 
-
-
     @Override
     public String toString() {
-        return "Truck{" +
-                "weight=" + weight +
+        return "Car{" +
+                "typeBody=" + typeOfBody +
                 '}';
     }
 }
