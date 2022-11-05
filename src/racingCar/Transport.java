@@ -64,8 +64,10 @@ public abstract class Transport implements Competing{
 
     public abstract void finishMoving();
 
-    public abstract void printType();
+    //public abstract void printType();
 
+
+    public abstract boolean takeDiagnostics();
 
 
 

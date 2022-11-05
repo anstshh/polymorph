@@ -30,6 +30,11 @@ public class Truck extends Transport implements Competing{
     }
 
     @Override
+    public boolean takeDiagnostics() {
+        return Math.random()>0.75;
+    }
+
+    //@Override
     public void printType() {
         if(weight==null) {
             System.out.println("Данных по авто недостаточно");

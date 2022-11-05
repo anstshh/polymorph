@@ -30,6 +30,11 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public boolean takeDiagnostics() {
+        return Math.random()>0.7;
+    }
+
+    //@Override
     public void printType() {
         if(typeOfBody==null) {
             System.out.println("Данных по авто недостаточно");

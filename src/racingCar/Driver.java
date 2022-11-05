@@ -3,12 +3,13 @@ package racingCar;
 abstract class Driver<A extends Transport&Competing>{
 
     private String fullNameDriver;
-    private boolean driverLicense = true;
+    private String driverLicense;
     private int experience;
+
 
     public Driver(String fullNameDriver, boolean driverLicense, int experience) {
         setFullNameDriver(fullNameDriver);
-        setDriverLicense(driverLicense);
+        setDriverLicense(String.valueOf(driverLicense));
         setExperience(experience);
 
     }
@@ -36,11 +37,14 @@ abstract class Driver<A extends Transport&Competing>{
     }
 
 
-    public boolean isDriverLicense() {
+    public String isDriverLicense() {
         return driverLicense;
     }
 
-    public void setDriverLicense(boolean driverLicense) {
+    public void setDriverLicense(String driverLicense) {
+        if(driverLicense == null) {
+            throw new IllegalArgumentException("Необоходимо указать категорию прав!");
+        }
         this.driverLicense = driverLicense;
     }
 
