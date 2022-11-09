@@ -1,5 +1,7 @@
 import racingCar.*;
 
+import java.util.List;
+
 public class Main {
 
     private static void takeDiagnostics(Transport... transports) {
@@ -47,7 +49,7 @@ public class Main {
     }*/
 
 
-                public static void main (String[]args){
+                public static <Driver> void main (String[]args){
 
                     Car kia = new Car("Kia", "Spectra", 1.8, TypeOfBody.COUPE);
                     Car lada = new Car("Lada", "Granta", 1.6, TypeOfBody.COUPE);
@@ -107,10 +109,58 @@ public class Main {
                     lexie.stop(paz);
                     lexie.refill(paz);
 
+                    List<Transport> transports = List.of(lada,bmw,tayota,gili,gazel,kia,luaz,nissan,raf,daaz);
+
+                    Sponsor lukoil =  new Sponsor("Lukoil",50000);
+                    lada.addSponsor(lukoil);
+                    Driver<Car> ivan = new Driver<Car>("Иван Н.", 5, "B");
+                    lada.addDriver(ivan);
+
+                    Mechanic<Car> vova = new Mechanic<>("Вова", " Коваль", "Абетка");
+                    lada.addMechanic(vova);
+
+                    for(Transport transport : transports){
+                        printInfo(transport);
+                    }
                 }
 
+    public static void printInfo(Transport transport){
+        System.out.println("Информация по автомобилю " + transport.getModel() + transport.getBrand());
+        System.out.println("Водители :");
+        for(Driver<?> driver : transport.getDrivers()){
+            System.out.println(driver.getName());
+        }
+        System.out.println("Спонсоры:");
+        for (Sponsor sponsor : transport.getSponsors()){
+            System.out.println(sponsor.getNameCompany());
+        }
+        System.out.println("Механики ");
+        for (Mechanic<?> mechanik: transport.getMechaniks()){
+            System.out.println(mechanik.surname + mechanik.name);
+        }
+    }
 
+    private static void service(Transport... transports) {
+        for (Transport transport : transports) {
+            serviceTransport(transport);
+        }
+    }
+
+    private static void serviceTransport(Transport transport) {
+        try {
+            if (!transport.diagnostics()) {
+                throw new RuntimeException("Автомобиль" + transport.getBrand() + transport.getModel() + " прошел диагностику.");
             }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+
+
+
 
 
 
