@@ -18,6 +18,21 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public void repair() {
+
+    }
+
+    @Override
+    public void fixTransport() {
+
+    }
+
+    @Override
+    public boolean diagnostics() {
+        return Math.random() > 0.7;
+    }
+
+    @Override
     public void startMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
 
@@ -34,7 +49,7 @@ public class Car extends Transport implements Competing{
         return Math.random()>0.7;
     }
 
-    //@Override
+    @Override
     public void printType() {
         if(typeOfBody==null) {
             System.out.println("Данных по авто недостаточно");

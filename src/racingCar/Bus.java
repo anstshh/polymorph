@@ -18,6 +18,21 @@ public class Bus extends Transport implements  Competing{
     }
 
     @Override
+    public void repair() {
+
+    }
+
+    @Override
+    public void fixTransport() {
+
+    }
+
+    @Override
+    public boolean diagnostics() {
+        return false;
+    }
+
+    @Override
     public void startMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
 
@@ -35,7 +50,7 @@ public class Bus extends Transport implements  Competing{
         return true;
     }
 
-    //@Override
+    @Override
     public void printType() {
         if(capacity==null) {
             System.out.println("Данных по авто недостаточно");

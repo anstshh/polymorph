@@ -18,6 +18,22 @@ public class Truck extends Transport implements Competing{
     }
 
     @Override
+    public void repair() {
+
+    }
+
+    @Override
+    public void fixTransport() {
+
+    }
+
+    @Override
+    public boolean diagnostics() {
+        return Math.random() > 0.75;
+    }
+
+
+    @Override
     public void startMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " начинает движение.");
 
@@ -34,7 +50,7 @@ public class Truck extends Transport implements Competing{
         return Math.random()>0.75;
     }
 
-    //@Override
+    @Override
     public void printType() {
         if(weight==null) {
             System.out.println("Данных по авто недостаточно");

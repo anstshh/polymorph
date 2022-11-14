@@ -36,8 +36,8 @@ public abstract class Transport implements Competing{
     public void addDriver(Driver<?> driver){
         drivers.add(driver);
     }
-    public void addMechanic(Mechanic<?> mechanik){
-        mechanics.add(mechanik);
+    public void addMechanic(Mechanic<?> mechanic){
+        mechanics.add(mechanic);
     }
     public void addSponsor(Sponsor sponsor){
         sponsors.add(sponsor);
@@ -47,7 +47,7 @@ public abstract class Transport implements Competing{
         return drivers;
     }
 
-    public List<Mechanic<?>> getMechaniks() {
+    public List<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
@@ -106,7 +106,6 @@ public abstract class Transport implements Competing{
 
     public abstract void finishMoving();
 
-    //public abstract void printType();
 
 
     public abstract boolean takeDiagnostics();
@@ -123,4 +122,5 @@ public abstract class Transport implements Competing{
     }
 
 
+    public abstract void printType();
 }

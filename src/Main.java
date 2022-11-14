@@ -1,6 +1,8 @@
 import racingCar.*;
 
+import java.util.ArrayDeque;
 import java.util.List;
+import java.util.Queue;
 
 public class Main {
 
@@ -32,21 +34,21 @@ public class Main {
                             " литров. Тип кузова - " + car.getTypeOfBody());
                 }
 
-   /*/ public static void printInfoByBus(Bus bus) {
+   public static void printInfoByBus(Bus bus) {
         System.out.println("Информация о автобусе:" +
                 " марка " + bus.getBrand() +
                 ", модель " + bus.getModel() +
                 ", мощность двигателя " + bus.getEngineVolume() +
-                " литров. Тип вместимости - " + bus.getWeight());
+                " литров. Тип вместимости - " + bus.getCapacity());
     }
 
-    public static void printInfoByTrucks(Truck truck) {
+    public static void printInfoByTruck(Truck truck) {
         System.out.println("Информация о грузовом автомобиле:" +
                 " марка " + truck.getBrand() +
                 ", модель " + truck.getModel() +
                 ", мощность двигателя " + truck.getEngineVolume() +
-                " литров. Тип грузоподъёмности - " + truck.getCapacity());
-    }*/
+                " литров. Тип грузоподъёмности - " + truck.getWeight());
+    }
 
 
                 public static <Driver> void main (String[]args){
@@ -109,15 +111,17 @@ public class Main {
                     lexie.stop(paz);
                     lexie.refill(paz);
 
-                    List<Transport> transports = List.of(lada,bmw,tayota,gili,gazel,kia,luaz,nissan,raf,daaz);
+                    List<Transport> transports = List.of(lada,bmw,kia,luaz,paz,nissan,tayota,yuaz,gazel,raf);
 
                     Sponsor lukoil =  new Sponsor("Lukoil",50000);
                     lada.addSponsor(lukoil);
-                    Driver<Car> ivan = new Driver<Car>("Иван Н.", 5, "B");
-                    lada.addDriver(ivan);
+                    Driver<Car> denis = new Driver<>("Denis.", 5, "B") {
 
-                    Mechanic<Car> vova = new Mechanic<>("Вова", " Коваль", "Абетка");
-                    lada.addMechanic(vova);
+                    };
+                    lada.addDriver(denis);
+
+                    Mechanic<Car> sally = new Mechanic<>("Sally", " Vol", "Extra");
+                    lada.addMechanic(sally);
 
                     for(Transport transport : transports){
                         printInfo(transport);
@@ -128,15 +132,15 @@ public class Main {
         System.out.println("Информация по автомобилю " + transport.getModel() + transport.getBrand());
         System.out.println("Водители :");
         for(Driver<?> driver : transport.getDrivers()){
-            System.out.println(driver.getName());
+            System.out.println(driver.getFullNameDriver());
         }
         System.out.println("Спонсоры:");
         for (Sponsor sponsor : transport.getSponsors()){
             System.out.println(sponsor.getNameCompany());
         }
         System.out.println("Механики ");
-        for (Mechanic<?> mechanik: transport.getMechaniks()){
-            System.out.println(mechanik.surname + mechanik.name);
+        for (Mechanic<?> mechanic: transport.getMechanics()){
+            System.out.println(mechanic.getSurname() + mechanic.getName());
         }
     }
 

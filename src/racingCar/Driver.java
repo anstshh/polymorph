@@ -1,6 +1,6 @@
 package racingCar;
 
-abstract class Driver<A extends Transport&Competing>{
+public abstract class Driver<A extends Transport&Competing>{
 
     private String fullNameDriver;
     private String driverLicense;
@@ -68,5 +68,6 @@ abstract class Driver<A extends Transport&Competing>{
                 ", experience=" + experience +
                 '}';
     }
+
 
 }
