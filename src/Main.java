@@ -51,7 +51,7 @@ public class Main {
     }
 
 
-                public static <Driver> void main (String[]args){
+    public static void main (String[]args){
 
                     Car kia = new Car("Kia", "Spectra", 1.8, TypeOfBody.COUPE);
                     Car lada = new Car("Lada", "Granta", 1.6, TypeOfBody.COUPE);
@@ -113,9 +113,9 @@ public class Main {
 
                     List<Transport> transports = List.of(lada,bmw,kia,luaz,paz,nissan,tayota,yuaz,gazel,raf);
 
-                    Sponsor lukoil =  new Sponsor("Lukoil",50000);
-                    lada.addSponsor(lukoil);
-                    Driver<Car> denis = new Driver<>("Denis.", 5, "B") {
+                    Sponsor Lukoil =  new Sponsor("Lukoil",50000);
+                    lada.addSponsor(Lukoil);
+                    DriverB denis = new DriverB("Denis", true,5) {
 
                     };
                     lada.addDriver(denis);
@@ -142,6 +142,7 @@ public class Main {
         for (Mechanic<?> mechanic: transport.getMechanics()){
             System.out.println(mechanic.getSurname() + mechanic.getName());
         }
+
     }
 
     private static void service(Transport... transports) {
@@ -149,6 +150,7 @@ public class Main {
             serviceTransport(transport);
         }
     }
+
 
     private static void serviceTransport(Transport transport) {
         try {
