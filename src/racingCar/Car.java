@@ -1,5 +1,7 @@
 package racingCar;
 
+import java.util.Objects;
+
 public class Car extends Transport implements Competing{
 
     private TypeOfBody typeOfBody;
@@ -81,5 +83,18 @@ public class Car extends Transport implements Competing{
         return "Car{" +
                 "typeBody=" + typeOfBody +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return Double.compare(car.getEngineVolume(), getEngineVolume()) == 0 && getBrand().equals(car.getBrand()) && getModel().equals(car.getModel()) && getDrivers().equals(car.getDrivers()) && getSponsors().equals(car.getSponsors()) && getMechanics().equals(car.getMechanics());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDrivers(), getSponsors(), getMechanics());
     }
 }

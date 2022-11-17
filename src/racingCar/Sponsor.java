@@ -1,5 +1,7 @@
 package racingCar;
 
+import java.util.Objects;
+
 public class Sponsor {
     String nameCompany;
     int supportSum;
@@ -18,5 +20,18 @@ public class Sponsor {
 
     public int getSupportSum() {
         return supportSum;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sponsor sponsor = (Sponsor) o;
+        return supportSum == sponsor.supportSum && Objects.equals(nameCompany, sponsor.nameCompany);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameCompany, supportSum);
     }
 }

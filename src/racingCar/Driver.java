@@ -1,10 +1,13 @@
 package racingCar;
 
+import java.util.Objects;
+
 public abstract class Driver<A extends Transport&Competing>{
 
     private String fullNameDriver;
     private String driverLicense;
     private int experience;
+
 
 
     public Driver(String fullNameDriver, boolean driverLicense, int experience) {
@@ -67,6 +70,19 @@ public abstract class Driver<A extends Transport&Competing>{
                 ", driverLicense=" + driverLicense +
                 ", experience=" + experience +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Driver)) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return Double.compare(driver.experience, experience) == 0 && fullNameDriver.equals(driver.fullNameDriver) && driverLicense.equals(driver.driverLicense);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullNameDriver, driverLicense, experience);
     }
 
 
