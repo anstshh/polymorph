@@ -1,20 +1,22 @@
 package racingCar;
 
-public class Truck extends Transport implements Competing{
+import java.util.Objects;
 
-    private Weight weight;
+public class Car extends Transport implements Competing{
 
-    public Truck(String brand, String model, double engineVolume, Weight weight) {
+    private TypeOfBody typeOfBody;
+
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
-        this.weight = weight;
+        this.typeOfBody = typeOfBody;
     }
 
-    public Weight getWeight() {
-        return weight;
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
     }
 
-    public void setWeight(Weight weight) {
-        this.weight = weight;
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -29,9 +31,8 @@ public class Truck extends Transport implements Competing{
 
     @Override
     public boolean diagnostics() {
-        return Math.random() > 0.75;
+        return Math.random() > 0.7;
     }
-
 
     @Override
     public void startMoving() {
@@ -47,17 +48,15 @@ public class Truck extends Transport implements Competing{
 
     @Override
     public boolean takeDiagnostics() {
-        return Math.random()>0.75;
+        return Math.random()>0.7;
     }
 
     @Override
     public void printType() {
-        if(weight==null) {
+        if(typeOfBody==null) {
             System.out.println("Данных по авто недостаточно");
         } else {
-            String from = weight.getFrom() == null ? " " : "от " + weight.getFrom() + " ";
-            String to = weight.getTo() == null ? " " : "от " + weight.getTo();
-            System.out.println("Грузоподъемность авто: " + from + to);
+            System.out.println("Тип кузова авто: " + typeOfBody);
         }
 
     }
@@ -79,12 +78,23 @@ public class Truck extends Transport implements Competing{
         return 0;
     }
 
-
-
     @Override
     public String toString() {
-        return "Truck{" +
-                "weight=" + weight +
+        return "Car{" +
+                "typeBody=" + typeOfBody +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return Double.compare(car.getEngineVolume(), getEngineVolume()) == 0 && getBrand().equals(car.getBrand()) && getModel().equals(car.getModel()) && getDrivers().equals(car.getDrivers()) && getSponsors().equals(car.getSponsors()) && getMechanics().equals(car.getMechanics());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getModel(), getEngineVolume(), getDrivers(), getSponsors(), getMechanics());
     }
 }

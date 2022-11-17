@@ -1,9 +1,19 @@
 package racingCar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport implements Competing{
     private String brand;
     private String model;
     private double engineVolume;
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
+
+    public String getBrand() {
+        return brand;
+    }
 
     public Transport(String brand, String model, double engineVolume) {
         if (brand == null && brand.isEmpty()) {
@@ -23,9 +33,28 @@ public abstract class Transport implements Competing{
         }
     }
 
-    public String getBrand() {
-        return brand;
+    public void addDriver(Driver<?> driver){
+        drivers.add(driver);
     }
+    public void addMechanic(Mechanic<?> mechanic){
+        mechanics.add(mechanic);
+    }
+    public void addSponsor(Sponsor sponsor){
+        sponsors.add(sponsor);
+    }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
 
     public void setBrand(String brand) {
         if (brand == null && brand.isEmpty()) {
@@ -59,22 +88,39 @@ public abstract class Transport implements Competing{
         }
     }
 
-    //public abstract void startMoving();
 
-    public abstract void finishTheMovement();
 
-    @Override
-    public String[] getPitStop() {
-        return new String[0];
+
+
+    public abstract void repair();
+
+    public abstract void fixTransport();
+    public abstract boolean diagnostics();
+
+
+    public boolean service() {
+        return service();
     }
 
-    @Override
-    public double[] bestLapTime() {
-        return new double[0];
-    }
+    public abstract void startMoving();
+
+    public abstract void finishMoving();
+
+
+
+    public abstract boolean takeDiagnostics();
+
+
 
     @Override
-    public int[] maxSpeed() {
-        return new int[0];
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                '}';
     }
+
+
+    public abstract void printType();
 }
